@@ -16,8 +16,6 @@ else:
 		return isinstance(c, type) and issubclass(c, unittest.TestCase)
 
 __all__ = [
-    'dynamics',
-    'twobody'
 ]
 
 def suite():

@@ -6,3 +6,6 @@ __all__ = [
 	'docs',
 	'test'
 ]
+
+from orbit import *
+
