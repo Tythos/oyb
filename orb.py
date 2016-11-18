@@ -37,7 +37,7 @@ class Orbit(object):
         """
         if t_dt is None:
             t_dt = self.tEpoch_dt
-        dt_s = (t_dt - self.tEpoch_dt).total_seconds() * 86400
+        dt_s = (t_dt - self.tEpoch_dt).total_seconds()
         dM_rad = dt_s * 2 * pi / self.getPeriod()
         M_rad = (self.M_rad + dM_rad) % (2 * pi)
         return anomaly.mean2true(M_rad, self.e)
@@ -74,6 +74,53 @@ class Orbit(object):
         hApo_m = self.a_m * (1 + self.e) - earth.eqRad_m
         return (hPer_m, hApo_m)
         
+    def getShapeVel(self):
+        rPer_m = self.a_m * (1 - self.e)
+        rApo_m = self.a_m * (1 + self.e)
+        h_m2ps = self.getAngMom()
+        return h_m2ps / rPer_m, h_m2ps / rApo_m
+        
+    def getTaaRad(self):
+        rPer_m = self.a_m * (1 - self.e)
+        rApo_m = self.a_m * (1 + self.e)
+        return (rPer_m * rApo_m)**0.5
+    
+    def setShape(self, hPer_m, hApo_m):
+        rPer_m = hPer_m + earth.eqRad_m
+        rApo_m = hApo_m + earth.eqRad_m
+        self.a_m = 0.5 * (rPer_m + rApo_m)
+        self.e = (rApo_m - rPer_m) / (rApo_m + rPer_m)
+        
+    def propagate(self, tEpoch_dt=None, nSamples=1000):
+        """Computes inertial position over the course of one orbit, beginning
+           with the given datetime (or, if not provided, the element epoch).
+           This defaults to 1,000 samples within that time range.
+        """
+        if tEpoch_dt is None:
+            tEpoch_dt = self.tEpoch_dt
+        T_s = self.getPeriod()
+        ti_s = numpy.linspace(0, T_s, nSamples)
+        rEci_m = numpy.zeros((0,3))
+        for t_s in ti_s:
+            r = self.getReci(tEpoch_dt + datetime.timedelta(t_s/86400))
+            rEci_m = numpy.append(rEci_m, r.reshape(1,-1), axis=0)
+        return rEci_m
+		
+	def track(self, tEpoch_dt=None, nSamples=1000):
+		"""Computes lat/lon/alt position over the course of one orbit, beginning
+		   with the given datetime (or, if not provided, the element epoch).
+		   This defaults to 1,l000 samples within that time range.
+		"""
+        if tEpoch_dt is None:
+            tEpoch_dt = self.tEpoch_dt
+        T_s = self.getPeriod()
+        ti_s = numpy.linspace(0, T_s, nSamples)
+        rEci_m = numpy.zeros((0,3))
+        for t_s in ti_s:
+            r = self.getReci(tEpoch_dt + datetime.timedelta(t_s/86400))
+            rEci_m = numpy.append(rEci_m, r.reshape(1,-1), axis=0)
+        return rEci_m
+        
     @staticmethod
     def fromRV(rEci_m, vEci_mps):
         """
@@ -100,3 +147,14 @@ class Orbit(object):
         M_rad = anomaly.true2mean(tht_rad, e)
         a_m = h_m2ps**2 / (earth.mu_m3ps2 * (1 - e**2))
         return Orbit(a_m=a_m, e=e, i_rad=i_rad, O_rad=O_rad, w_rad=w_rad, M_rad=M_rad)
+        
+    @staticmethod
+    def fromHTht(h1_m, tht1_rad, h2_m, tht2_rad):
+        """
+        """
+        r1_m = h1_m + earth.eqRad_m
+        r2_m = h2_m + earth.eqRad_m
+        e = (r1_m - r2_m) / (r2_m * cos(tht2_rad) - r1_m * cos(tht1_rad))
+        h_m2ps = (r1_m * earth.mu_m3ps2 * (1 + e * cos(tht1_rad)))**0.5
+        a_m = h_m2ps**2 / (earth.mu_m3ps2 * (1 - e**2))
+        return Orbit(a_m=a_m, e=e)

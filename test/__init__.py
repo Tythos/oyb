@@ -16,6 +16,10 @@ else:
 		return isinstance(c, type) and issubclass(c, unittest.TestCase)
 
 __all__ = [
+    'anomaly',
+    'earth',
+    'orb',
+    'rot'
 ]
 
 def suite():

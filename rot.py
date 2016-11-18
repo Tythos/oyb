@@ -5,7 +5,7 @@
 """
 
 import numpy
-from math import sin, cos
+from math import sin, cos, atan2
 
 def x(tht_rad):
     return numpy.array([
@@ -42,4 +42,16 @@ def Z(tht_rad):
         [cos(tht_rad), sin(tht_rad), 0],
         [-sin(tht_rad), cos(tht_rad), 0],
         [0, 0, 1]])
-        
+
+def xyz2sph(xyz):
+    xy = (xyz[0]**2 + xyz[1]**2)**0.5
+    phi_rad = atan2(xyz[1], xyz[0])
+    tht_rad = atan2(xyz[2], xy)
+    r = (xyz[0]**2 + xyz[1]**2 + xyz[2]**2)**0.5
+    return numpy.array([phi_rad, tht_rad, r])
+    
+def sph2xyz(sph):
+    x = cos(sph[0]) * cos(sph[1])
+    y = sin(sph[0]) * cos(sph[1])
+    z = sin(sph[1])
+    return sph[2] * numpy.array([x, y, z])

@@ -48,5 +48,13 @@ class TransformationSequence(unittest.TestCase):
         dWIO = (wiO_ref - wiO_act).reshape((9,))
         self.assertTrue(dWIO.dot(dWIO)**0.5 < 1e-4)
         
+class SphericalFrame(unittest.TestCase):
+    def test_xyz1sph(self):
+        xyz = numpy.array([-5.368e6, -1.784e6, 3.691e6])
+        sph = rot.xyz2sph(xyz)
+        self.assertTrue(abs(sph[0] - 198.4 * pi / 180) / sph[0] < 1e-3)
+        self.assertTrue(abs(sph[1] - 33.12 * pi / 180) / sph[1] < 1e-3)
+        self.assertTrue(abs(sph[2] - 6.754e6) / sph[2] < 1e-3)
+        
 if __name__ == '__main__':
     unittest.main()
