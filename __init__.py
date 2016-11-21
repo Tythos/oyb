@@ -4,7 +4,12 @@
 __all__ = [
     'data',
     'docs',
-    'test'
+    'test',
+    'anomaly',
+    'earth',
+    'orb',
+    'plot',
+    'rot'
 ]
 
 from orb import *

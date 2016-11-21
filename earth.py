@@ -1,4 +1,5 @@
-"""
+"""Defines earth parameters and key earth-specific calculations (ECF/ENU frame
+   conversions, latitude/longitude, GMST, etc.).
 """
 
 from __future__ import division
@@ -7,11 +8,14 @@ import datetime
 from math import pi, sin, cos
 from oyb import rot
 
+# Key Earth parameters
 mu_m3ps2 = 3.986e14
 tSidDay_s = 23 * 3600 + 56 * 60 + 4.0916
 eqRad_m = 6.3781e6
 j2000_dt = datetime.datetime(2000, 1, 1, 12, 0, 0)
 flatness = 0.003353
+j2 = 1.08263e-3
+tSidYear_s = 365.25636 * 86400
 
 def getGmst(t_dt):
     """Returns GMST--the angle (in radians) between the first point of Aries
@@ -48,3 +52,8 @@ def getQecf2enu(rSiteLla_radm):
     ry = rot.Y(-rSiteLla_radm[0])
     rz = rot.Z(rSiteLla_radm[1])
     return Quen2enu.dot(ry).dot(rz)
+
+def getRotVel():
+    """Returns the rotational velocity of the earth, in radians per second.
+    """
+    return 2 * pi / tSidDay_s

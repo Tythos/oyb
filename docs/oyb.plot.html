@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module oyb.plot</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="oyb.html"><font color="#ffffff">oyb</font></a>.plot</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/bkirkpatrick/projects/oyb/plot.py">c:\users\bkirkpatrick\projects\oyb\plot.py</a></font></td></tr></table>
+    <p><tt>Contains&nbsp;various&nbsp;plotting&nbsp;methods&nbsp;(both&nbsp;main&nbsp;plot&nbsp;functions&nbsp;and&nbsp;their<br>
+specific&nbsp;rendering&nbsp;and&nbsp;annotation&nbsp;behaviors)&nbsp;for&nbsp;Orbit-derived&nbsp;objects&nbsp;in&nbsp;2d<br>
+(i.e.,&nbsp;ground&nbsp;track)&nbsp;and&nbsp;3d&nbsp;(i.e.,&nbsp;orbital)&nbsp;plots.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="oyb.data.html">oyb.data</a><br>
+<a href="oyb.earth.html">oyb.earth</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.image.html">matplotlib.image</a><br>
+<a href="mpl_toolkits.mplot3d.html">mpl_toolkits.mplot3d</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-annotateEarthSphere"><strong>annotateEarthSphere</strong></a>(hx)</dt><dd><tt>Adds&nbsp;axis&nbsp;labels&nbsp;to&nbsp;the&nbsp;given&nbsp;3d&nbsp;orbit&nbsp;plot&nbsp;axis.</tt></dd></dl>
+ <dl><dt><a name="-annotateEarthSurf"><strong>annotateEarthSurf</strong></a>(hx)</dt><dd><tt>Annotates&nbsp;the&nbsp;given&nbsp;earth&nbsp;surface&nbsp;axis&nbsp;with&nbsp;axis&nbsp;labels&nbsp;and&nbsp;a&nbsp;dashed&nbsp;line<br>
+along&nbsp;the&nbsp;equator.</tt></dd></dl>
+ <dl><dt><a name="-plot2d"><strong>plot2d</strong></a>(o, r<font color="#909090">=None</font>, hx<font color="#909090">=None</font>)</dt><dd><tt>Plots&nbsp;the&nbsp;given&nbsp;orbit&nbsp;for&nbsp;one&nbsp;period&nbsp;in&nbsp;a&nbsp;2d&nbsp;ground&nbsp;track.&nbsp;Can<br>
+alternatively&nbsp;use&nbsp;a&nbsp;predetermined&nbsp;ephermide&nbsp;(latitude,&nbsp;longitude,<br>
+altitude,&nbsp;as&nbsp;formatted&nbsp;in&nbsp;a&nbsp;[3xn]&nbsp;numpy&nbsp;array).&nbsp;If&nbsp;an&nbsp;axis&nbsp;handle&nbsp;(hx)&nbsp;is<br>
+provided,&nbsp;will&nbsp;add&nbsp;the&nbsp;ground&nbsp;track&nbsp;to&nbsp;the&nbsp;given&nbsp;plot;&nbsp;otherwise,&nbsp;a&nbsp;new<br>
+figure&nbsp;will&nbsp;be&nbsp;created&nbsp;and&nbsp;the&nbsp;axis&nbsp;returned.</tt></dd></dl>
+ <dl><dt><a name="-plot3d"><strong>plot3d</strong></a>(o, r<font color="#909090">=None</font>, hx<font color="#909090">=None</font>)</dt><dd><tt>Plots&nbsp;the&nbsp;given&nbsp;orbit&nbsp;for&nbsp;one&nbsp;period&nbsp;in&nbsp;a&nbsp;3d&nbsp;volume&nbsp;of&nbsp;earth-centered<br>
+space.&nbsp;Can&nbsp;alternatively&nbsp;use&nbsp;a&nbsp;predetermined&nbsp;ephermide&nbsp;(XYZ&nbsp;[meters]&nbsp;in<br>
+ECI,&nbsp;as&nbsp;formatted&nbsp;in&nbsp;a&nbsp;[3xn]&nbsp;numpy&nbsp;array).&nbsp;If&nbsp;an&nbsp;axis&nbsp;handle&nbsp;(hx)&nbsp;is<br>
+provided,&nbsp;will&nbsp;add&nbsp;the&nbsp;orbit&nbsp;to&nbsp;the&nbsp;given&nbsp;plot;&nbsp;otherwise,&nbsp;a&nbsp;new&nbsp;figure<br>
+will&nbsp;be&nbsp;created&nbsp;and&nbsp;the&nbsp;axis&nbsp;returned.</tt></dd></dl>
+ <dl><dt><a name="-plotEarthSphere"><strong>plotEarthSphere</strong></a>(hx)</dt><dd><tt>Renders&nbsp;a&nbsp;3d&nbsp;wireframe&nbsp;of&nbsp;the&nbsp;earth&nbsp;at&nbsp;the&nbsp;center&nbsp;of&nbsp;the&nbsp;given&nbsp;plot&nbsp;axis.</tt></dd></dl>
+ <dl><dt><a name="-plotEarthSurf"><strong>plotEarthSurf</strong></a>(hx)</dt><dd><tt>Creates&nbsp;a&nbsp;new&nbsp;2d&nbsp;earth&nbsp;surface&nbsp;plot,&nbsp;with&nbsp;a&nbsp;Blue&nbsp;Marble&nbsp;image&nbsp;in&nbsp;the<br>
+background&nbsp;and&nbsp;scaled&nbsp;to&nbsp;(-180,180)&nbsp;degrees&nbsp;longitude&nbsp;on&nbsp;the&nbsp;x&nbsp;axis&nbsp;and<br>
+(-90,90)&nbsp;degrees&nbsp;latitude&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>pi</strong> = 3.141592653589793</td></tr></table>
+</body></html>

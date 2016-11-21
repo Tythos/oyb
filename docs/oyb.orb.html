@@ -1,0 +1,304 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module oyb.orb</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="oyb.html"><font color="#ffffff">oyb</font></a>.orb</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/bkirkpatrick/projects/oyb/orb.py">c:\users\bkirkpatrick\projects\oyb\orb.py</a></font></td></tr></table>
+    <p><tt>The&nbsp;heart&nbsp;of&nbsp;the&nbsp;*oyb*&nbsp;package;&nbsp;these&nbsp;module&nbsp;contents&nbsp;are&nbsp;imported&nbsp;with&nbsp;the<br>
+top&nbsp;package-level&nbsp;*oyb*&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;Contains&nbsp;orbital&nbsp;models&nbsp;and&nbsp;conversions.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="oyb.anomaly.html">oyb.anomaly</a><br>
+<a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="oyb.earth.html">oyb.earth</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="oyb.rot.html">oyb.rot</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="oyb.orb.html#Orbit">Orbit</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="oyb.orb.html#MeanJ2">MeanJ2</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MeanJ2">class <strong>MeanJ2</strong></a>(<a href="oyb.orb.html#Orbit">Orbit</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Implements&nbsp;propagation&nbsp;to&nbsp;evolve&nbsp;elements&nbsp;with&nbsp;mean&nbsp;J2&nbsp;perturbations<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="oyb.orb.html#MeanJ2">MeanJ2</a></dd>
+<dd><a href="oyb.orb.html#Orbit">Orbit</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="MeanJ2-getAop"><strong>getAop</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Computes&nbsp;the&nbsp;AoP&nbsp;value&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;(in&nbsp;radians)&nbsp;at&nbsp;the&nbsp;given&nbsp;point<br>
+in&nbsp;time,&nbsp;as&nbsp;propagated&nbsp;by&nbsp;the&nbsp;orbit-averaged&nbsp;mean&nbsp;precession&nbsp;computed<br>
+in&nbsp;the&nbsp;*getAopRate*&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getAopRate"><strong>getAopRate</strong></a>(self)</dt><dd><tt>Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;rate&nbsp;at&nbsp;which&nbsp;the&nbsp;argument&nbsp;of&nbsp;perigee<br>
+processes,&nbsp;in&nbsp;radians&nbsp;per&nbsp;second,&nbsp;as&nbsp;a&nbsp;result&nbsp;of&nbsp;the&nbsp;non-spherical<br>
+Earth's&nbsp;J2&nbsp;harmonic.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getQpqw2eci"><strong>getQpqw2eci</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;a&nbsp;time-varying&nbsp;tranformation&nbsp;matrix&nbsp;that&nbsp;converts&nbsp;vectors<br>
+from&nbsp;the&nbsp;PQW&nbsp;(co-orbital)&nbsp;frame&nbsp;to&nbsp;the&nbsp;earth-centered&nbsp;inertial&nbsp;(ECI)<br>
+frame&nbsp;(w.r.t.&nbsp;the&nbsp;J2000&nbsp;epochal&nbsp;orientation).&nbsp;This&nbsp;includes&nbsp;the&nbsp;RAAN<br>
+precession&nbsp;and&nbsp;AoP&nbsp;procession&nbsp;rates&nbsp;induced&nbsp;by&nbsp;the&nbsp;J2&nbsp;harmonic.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getRaan"><strong>getRaan</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Computes&nbsp;the&nbsp;RAAN&nbsp;value&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;(in&nbsp;radians)&nbsp;at&nbsp;the&nbsp;given&nbsp;point<br>
+in&nbsp;time,&nbsp;as&nbsp;propagated&nbsp;by&nbsp;the&nbsp;orbit-averaged&nbsp;mean&nbsp;precession&nbsp;computed<br>
+in&nbsp;the&nbsp;*getRaanRate*&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getRaanRate"><strong>getRaanRate</strong></a>(self)</dt><dd><tt>Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;rate&nbsp;at&nbsp;which&nbsp;the&nbsp;right-ascension&nbsp;of&nbsp;the<br>
+ascending&nbsp;node&nbsp;precesses,&nbsp;in&nbsp;radians&nbsp;per&nbsp;second,&nbsp;as&nbsp;a&nbsp;result&nbsp;of&nbsp;the<br>
+non-spherical&nbsp;Earth's&nbsp;J2&nbsp;harmonic.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getReci"><strong>getReci</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;position&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>,&nbsp;in&nbsp;meters,&nbsp;as<br>
+evaluted&nbsp;in&nbsp;the&nbsp;earth-centered&nbsp;inertial&nbsp;(ECI)&nbsp;frame.&nbsp;This&nbsp;includes<br>
+the&nbsp;RAAN&nbsp;precession&nbsp;and&nbsp;ApP&nbsp;procession&nbsp;rates&nbsp;induced&nbsp;by&nbsp;J2&nbsp;harmonic.</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="MeanJ2-fromConstAop"><strong>fromConstAop</strong></a>(cls, T_s)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Determines&nbsp;an&nbsp;eccentric&nbsp;sun-synch&nbsp;orbit&nbsp;from&nbsp;the&nbsp;given&nbsp;period</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-fromMolniya"><strong>fromMolniya</strong></a>(cls, lon_rad)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;Molniya-style&nbsp;orbit&nbsp;designed&nbsp;to&nbsp;peak&nbsp;at&nbsp;the&nbsp;given&nbsp;longitude<br>
+(in&nbsp;radians).&nbsp;Inclined&nbsp;to&nbsp;match&nbsp;RAAN&nbsp;recession&nbsp;to&nbsp;solar&nbsp;orientation.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-fromSunSync"><strong>fromSunSync</strong></a>(cls, T_s)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;new&nbsp;<a href="#MeanJ2">MeanJ2</a>&nbsp;orbit&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;scaled&nbsp;to&nbsp;a&nbsp;specific&nbsp;inclination<br>
+and&nbsp;altitude&nbsp;to&nbsp;achieve&nbsp;the&nbsp;given&nbsp;period,&nbsp;but&nbsp;with&nbsp;fixed&nbsp;RAAN<br>
+(inclined&nbsp;such&nbsp;that&nbsp;the&nbsp;orbital&nbsp;plane&nbsp;orientation&nbsp;w.r.t.&nbsp;the&nbsp;sun<br>
+remains&nbsp;constant).</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-fromTundra"><strong>fromTundra</strong></a>(cls, lon_rad)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>According&nbsp;to&nbsp;some&nbsp;definitions,&nbsp;tundra&nbsp;orbits&nbsp;do&nbsp;not&nbsp;necessarily&nbsp;match<br>
+inclination&nbsp;to&nbsp;eliminate&nbsp;RAAN&nbsp;recession.&nbsp;QZSS,&nbsp;for&nbsp;example,&nbsp;targets<br>
+apogee&nbsp;dwell&nbsp;at&nbsp;a&nbsp;specific&nbsp;latitude.&nbsp;While&nbsp;technically&nbsp;not&nbsp;requiring<br>
+a&nbsp;J2&nbsp;model,&nbsp;it&nbsp;is&nbsp;implemented&nbsp;here&nbsp;to&nbsp;support&nbsp;cases&nbsp;where&nbsp;the<br>
+inclination&nbsp;(at&nbsp;63.4&nbsp;degrees)&nbsp;is&nbsp;choosen&nbsp;to&nbsp;ensure&nbsp;a&nbsp;fixed&nbsp;track.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="oyb.orb.html#Orbit">Orbit</a>:<br>
+<dl><dt><a name="MeanJ2-__init__"><strong>__init__</strong></a>(self, a_m<font color="#909090">=None</font>, e<font color="#909090">=None</font>, i_rad<font color="#909090">=None</font>, O_rad<font color="#909090">=None</font>, w_rad<font color="#909090">=None</font>, M_rad<font color="#909090">=None</font>, tEpoch_dt<font color="#909090">=None</font>)</dt><dd><tt>Initializes&nbsp;a&nbsp;restricted&nbsp;two-body&nbsp;propagation&nbsp;model&nbsp;for&nbsp;a&nbsp;spherical<br>
+earth.&nbsp;Defaults&nbsp;to&nbsp;a&nbsp;circular&nbsp;GEO&nbsp;orbit&nbsp;with&nbsp;all&nbsp;angles&nbsp;set&nbsp;to&nbsp;0.<br>
+(Epoch&nbsp;is&nbsp;set&nbsp;to&nbsp;the&nbsp;UTC&nbsp;time&nbsp;when&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;created.)</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Converts&nbsp;an&nbsp;<a href="#Orbit">Orbit</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;into&nbsp;a&nbsp;string&nbsp;representation&nbsp;(invoked&nbsp;by&nbsp;the<br>
+*str*&nbsp;and&nbsp;*print*&nbsp;functions)&nbsp;that&nbsp;references&nbsp;the&nbsp;shape&nbsp;(altitude&nbsp;at<br>
+perigee&nbsp;and&nbsp;apogee)&nbsp;and&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;location&nbsp;in&nbsp;memory.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getAngMom"><strong>getAngMom</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;scalar&nbsp;angular&nbsp;momentum&nbsp;of&nbsp;the&nbsp;orbit,&nbsp;in&nbsp;m/s^2.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getApogee"><strong>getApogee</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;apogee,&nbsp;in<br>
+meters&nbsp;and&nbsp;evaluated&nbsp;within&nbsp;the&nbsp;earth-centered&nbsp;inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getAscNode"><strong>getAscNode</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;the<br>
+ascending&nbsp;node,&nbsp;in&nbsp;meters&nbsp;and&nbsp;evaluated&nbsp;within&nbsp;the&nbsp;earth-centered<br>
+inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getDescNode"><strong>getDescNode</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;the<br>
+descending&nbsp;node,&nbsp;in&nbsp;meters&nbsp;and&nbsp;evaluated&nbsp;within&nbsp;the&nbsp;earth-centered<br>
+inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getPerigee"><strong>getPerigee</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;perigee,&nbsp;in<br>
+meters&nbsp;and&nbsp;evaluated&nbsp;within&nbsp;the&nbsp;earth-centered&nbsp;inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getPeriod"><strong>getPeriod</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;period&nbsp;of&nbsp;the&nbsp;current&nbsp;orbit,&nbsp;in&nbsp;seconds.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getRlla"><strong>getRlla</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;position&nbsp;at&nbsp;the&nbsp;given&nbsp;datetime,&nbsp;in&nbsp;latitude,<br>
+longitude,&nbsp;and&nbsp;altitude&nbsp;(radians,&nbsp;radians,&nbsp;and&nbsp;meters,&nbsp;respectively).</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getRpqw"><strong>getRpqw</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;the&nbsp;given<br>
+datetime,&nbsp;as&nbsp;evaluted&nbsp;in&nbsp;the&nbsp;PQW&nbsp;(co-planar)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getShape"><strong>getShape</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;two-element&nbsp;tuple&nbsp;containing&nbsp;the&nbsp;altitude&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at<br>
+perigee&nbsp;and&nbsp;apogee,&nbsp;in&nbsp;meters&nbsp;above&nbsp;spherical&nbsp;sea&nbsp;level.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getShapeVel"><strong>getShapeVel</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;two-element&nbsp;tuple&nbsp;containing&nbsp;the&nbsp;scalar&nbsp;velocity&nbsp;of&nbsp;the<br>
+<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;perigee&nbsp;and&nbsp;apogee,&nbsp;in&nbsp;meters&nbsp;per&nbsp;second.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getTaaRad"><strong>getTaaRad</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;true-anomaly&nbsp;averaged&nbsp;radius&nbsp;(geometric&nbsp;mean&nbsp;of&nbsp;radius&nbsp;at<br>
+perigee&nbsp;and&nbsp;apogee),&nbsp;in&nbsp;meters.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-getTrue"><strong>getTrue</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;the&nbsp;true&nbsp;anomaly&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;when&nbsp;propagated&nbsp;to&nbsp;a&nbsp;given<br>
+datetime.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-propagate"><strong>propagate</strong></a>(self, tEpoch_dt<font color="#909090">=None</font>, T_s<font color="#909090">=None</font>, nSamples<font color="#909090">=1000</font>)</dt><dd><tt>Computes&nbsp;inertial&nbsp;position&nbsp;over&nbsp;the&nbsp;course&nbsp;of&nbsp;one&nbsp;orbit,&nbsp;beginning<br>
+with&nbsp;the&nbsp;given&nbsp;datetime&nbsp;(or,&nbsp;if&nbsp;not&nbsp;provided,&nbsp;the&nbsp;element&nbsp;epoch).<br>
+This&nbsp;defaults&nbsp;to&nbsp;1,000&nbsp;samples&nbsp;within&nbsp;that&nbsp;time&nbsp;range.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-setShape"><strong>setShape</strong></a>(self, hPer_m, hApo_m)</dt><dd><tt>Sets&nbsp;the&nbsp;a_m&nbsp;(semi-major&nbsp;axis)&nbsp;and&nbsp;e&nbsp;(eccentricity)&nbsp;values&nbsp;of&nbsp;an<br>
+orbit&nbsp;based&nbsp;on&nbsp;the&nbsp;given&nbsp;altitude&nbsp;(meters&nbsp;above&nbsp;spherical&nbsp;sea&nbsp;level)<br>
+at&nbsp;perigee&nbsp;and&nbsp;apogee.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-track"><strong>track</strong></a>(self, tEpoch_dt<font color="#909090">=None</font>, T_s<font color="#909090">=None</font>, nSamples<font color="#909090">=1000</font>)</dt><dd><tt>Computes&nbsp;lat/lon/alt&nbsp;position&nbsp;over&nbsp;the&nbsp;course&nbsp;of&nbsp;one&nbsp;orbit,&nbsp;beginning<br>
+with&nbsp;the&nbsp;given&nbsp;datetime&nbsp;(or,&nbsp;if&nbsp;not&nbsp;provided,&nbsp;the&nbsp;element&nbsp;epoch).<br>
+This&nbsp;defaults&nbsp;to&nbsp;1,000&nbsp;samples&nbsp;within&nbsp;that&nbsp;time&nbsp;range.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="oyb.orb.html#Orbit">Orbit</a>:<br>
+<dl><dt><a name="MeanJ2-fromHTht"><strong>fromHTht</strong></a>(cls, h1_m, tht1_rad, h2_m, tht2_rad)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Constructs&nbsp;an&nbsp;<a href="#Orbit">Orbit</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;based&nbsp;on&nbsp;the&nbsp;given&nbsp;altitude&nbsp;(meters&nbsp;above<br>
+spherical&nbsp;sea&nbsp;level)&nbsp;and&nbsp;true&nbsp;anomaly&nbsp;values&nbsp;(in&nbsp;radians).</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-fromRV"><strong>fromRV</strong></a>(cls, rEci_m, vEci_mps)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Constructs&nbsp;an&nbsp;<a href="#Orbit">Orbit</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;from&nbsp;the&nbsp;given&nbsp;position&nbsp;(meters)&nbsp;and<br>
+velocity&nbsp;(meters-per-second)&nbsp;state&nbsp;vectors,&nbsp;as&nbsp;evaluated&nbsp;in&nbsp;the<br>
+earth-centered&nbsp;inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="MeanJ2-fromTle"><strong>fromTle</strong></a>(cls, line1, line2)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Constructs&nbsp;an&nbsp;<a href="#Orbit">Orbit</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;from&nbsp;the&nbsp;given&nbsp;two&nbsp;strings,&nbsp;as&nbsp;formatted<br>
+by&nbsp;the&nbsp;TLE&nbsp;(two-line&nbsp;element)&nbsp;specification&nbsp;(one&nbsp;string&nbsp;per&nbsp;line).</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="oyb.orb.html#Orbit">Orbit</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Orbit">class <strong>Orbit</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Restricted&nbsp;two-body&nbsp;propagation&nbsp;model<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Orbit-__init__"><strong>__init__</strong></a>(self, a_m<font color="#909090">=None</font>, e<font color="#909090">=None</font>, i_rad<font color="#909090">=None</font>, O_rad<font color="#909090">=None</font>, w_rad<font color="#909090">=None</font>, M_rad<font color="#909090">=None</font>, tEpoch_dt<font color="#909090">=None</font>)</dt><dd><tt>Initializes&nbsp;a&nbsp;restricted&nbsp;two-body&nbsp;propagation&nbsp;model&nbsp;for&nbsp;a&nbsp;spherical<br>
+earth.&nbsp;Defaults&nbsp;to&nbsp;a&nbsp;circular&nbsp;GEO&nbsp;orbit&nbsp;with&nbsp;all&nbsp;angles&nbsp;set&nbsp;to&nbsp;0.<br>
+(Epoch&nbsp;is&nbsp;set&nbsp;to&nbsp;the&nbsp;UTC&nbsp;time&nbsp;when&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;created.)</tt></dd></dl>
+
+<dl><dt><a name="Orbit-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Converts&nbsp;an&nbsp;<a href="#Orbit">Orbit</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;into&nbsp;a&nbsp;string&nbsp;representation&nbsp;(invoked&nbsp;by&nbsp;the<br>
+*str*&nbsp;and&nbsp;*print*&nbsp;functions)&nbsp;that&nbsp;references&nbsp;the&nbsp;shape&nbsp;(altitude&nbsp;at<br>
+perigee&nbsp;and&nbsp;apogee)&nbsp;and&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;location&nbsp;in&nbsp;memory.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getAngMom"><strong>getAngMom</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;scalar&nbsp;angular&nbsp;momentum&nbsp;of&nbsp;the&nbsp;orbit,&nbsp;in&nbsp;m/s^2.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getApogee"><strong>getApogee</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;apogee,&nbsp;in<br>
+meters&nbsp;and&nbsp;evaluated&nbsp;within&nbsp;the&nbsp;earth-centered&nbsp;inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getAscNode"><strong>getAscNode</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;the<br>
+ascending&nbsp;node,&nbsp;in&nbsp;meters&nbsp;and&nbsp;evaluated&nbsp;within&nbsp;the&nbsp;earth-centered<br>
+inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getDescNode"><strong>getDescNode</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;the<br>
+descending&nbsp;node,&nbsp;in&nbsp;meters&nbsp;and&nbsp;evaluated&nbsp;within&nbsp;the&nbsp;earth-centered<br>
+inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getPerigee"><strong>getPerigee</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;perigee,&nbsp;in<br>
+meters&nbsp;and&nbsp;evaluated&nbsp;within&nbsp;the&nbsp;earth-centered&nbsp;inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getPeriod"><strong>getPeriod</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;period&nbsp;of&nbsp;the&nbsp;current&nbsp;orbit,&nbsp;in&nbsp;seconds.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getQpqw2eci"><strong>getQpqw2eci</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;frame&nbsp;transformation&nbsp;matrix&nbsp;from&nbsp;the&nbsp;PQW&nbsp;(co-planar)<br>
+frame&nbsp;to&nbsp;the&nbsp;earth-centered&nbsp;inertial&nbsp;(ECI)&nbsp;frame,&nbsp;w.r.t.&nbsp;J2000.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getReci"><strong>getReci</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;the&nbsp;position&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;the&nbsp;given&nbsp;point&nbsp;in&nbsp;time,&nbsp;as<br>
+evaluated&nbsp;within&nbsp;the&nbsp;earth-centered&nbsp;inertial&nbsp;(ECI)&nbsp;frame,&nbsp;in&nbsp;meters.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getRlla"><strong>getRlla</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Computes&nbsp;and&nbsp;returns&nbsp;the&nbsp;position&nbsp;at&nbsp;the&nbsp;given&nbsp;datetime,&nbsp;in&nbsp;latitude,<br>
+longitude,&nbsp;and&nbsp;altitude&nbsp;(radians,&nbsp;radians,&nbsp;and&nbsp;meters,&nbsp;respectively).</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getRpqw"><strong>getRpqw</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;the&nbsp;3-component&nbsp;position&nbsp;vector&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;the&nbsp;given<br>
+datetime,&nbsp;as&nbsp;evaluted&nbsp;in&nbsp;the&nbsp;PQW&nbsp;(co-planar)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getShape"><strong>getShape</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;two-element&nbsp;tuple&nbsp;containing&nbsp;the&nbsp;altitude&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;at<br>
+perigee&nbsp;and&nbsp;apogee,&nbsp;in&nbsp;meters&nbsp;above&nbsp;spherical&nbsp;sea&nbsp;level.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getShapeVel"><strong>getShapeVel</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;two-element&nbsp;tuple&nbsp;containing&nbsp;the&nbsp;scalar&nbsp;velocity&nbsp;of&nbsp;the<br>
+<a href="__builtin__.html#object">object</a>&nbsp;at&nbsp;perigee&nbsp;and&nbsp;apogee,&nbsp;in&nbsp;meters&nbsp;per&nbsp;second.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getTaaRad"><strong>getTaaRad</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;true-anomaly&nbsp;averaged&nbsp;radius&nbsp;(geometric&nbsp;mean&nbsp;of&nbsp;radius&nbsp;at<br>
+perigee&nbsp;and&nbsp;apogee),&nbsp;in&nbsp;meters.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-getTrue"><strong>getTrue</strong></a>(self, t_dt<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;the&nbsp;true&nbsp;anomaly&nbsp;of&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;when&nbsp;propagated&nbsp;to&nbsp;a&nbsp;given<br>
+datetime.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-propagate"><strong>propagate</strong></a>(self, tEpoch_dt<font color="#909090">=None</font>, T_s<font color="#909090">=None</font>, nSamples<font color="#909090">=1000</font>)</dt><dd><tt>Computes&nbsp;inertial&nbsp;position&nbsp;over&nbsp;the&nbsp;course&nbsp;of&nbsp;one&nbsp;orbit,&nbsp;beginning<br>
+with&nbsp;the&nbsp;given&nbsp;datetime&nbsp;(or,&nbsp;if&nbsp;not&nbsp;provided,&nbsp;the&nbsp;element&nbsp;epoch).<br>
+This&nbsp;defaults&nbsp;to&nbsp;1,000&nbsp;samples&nbsp;within&nbsp;that&nbsp;time&nbsp;range.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-setShape"><strong>setShape</strong></a>(self, hPer_m, hApo_m)</dt><dd><tt>Sets&nbsp;the&nbsp;a_m&nbsp;(semi-major&nbsp;axis)&nbsp;and&nbsp;e&nbsp;(eccentricity)&nbsp;values&nbsp;of&nbsp;an<br>
+orbit&nbsp;based&nbsp;on&nbsp;the&nbsp;given&nbsp;altitude&nbsp;(meters&nbsp;above&nbsp;spherical&nbsp;sea&nbsp;level)<br>
+at&nbsp;perigee&nbsp;and&nbsp;apogee.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-track"><strong>track</strong></a>(self, tEpoch_dt<font color="#909090">=None</font>, T_s<font color="#909090">=None</font>, nSamples<font color="#909090">=1000</font>)</dt><dd><tt>Computes&nbsp;lat/lon/alt&nbsp;position&nbsp;over&nbsp;the&nbsp;course&nbsp;of&nbsp;one&nbsp;orbit,&nbsp;beginning<br>
+with&nbsp;the&nbsp;given&nbsp;datetime&nbsp;(or,&nbsp;if&nbsp;not&nbsp;provided,&nbsp;the&nbsp;element&nbsp;epoch).<br>
+This&nbsp;defaults&nbsp;to&nbsp;1,000&nbsp;samples&nbsp;within&nbsp;that&nbsp;time&nbsp;range.</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Orbit-fromHTht"><strong>fromHTht</strong></a>(cls, h1_m, tht1_rad, h2_m, tht2_rad)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Constructs&nbsp;an&nbsp;<a href="#Orbit">Orbit</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;based&nbsp;on&nbsp;the&nbsp;given&nbsp;altitude&nbsp;(meters&nbsp;above<br>
+spherical&nbsp;sea&nbsp;level)&nbsp;and&nbsp;true&nbsp;anomaly&nbsp;values&nbsp;(in&nbsp;radians).</tt></dd></dl>
+
+<dl><dt><a name="Orbit-fromRV"><strong>fromRV</strong></a>(cls, rEci_m, vEci_mps)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Constructs&nbsp;an&nbsp;<a href="#Orbit">Orbit</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;from&nbsp;the&nbsp;given&nbsp;position&nbsp;(meters)&nbsp;and<br>
+velocity&nbsp;(meters-per-second)&nbsp;state&nbsp;vectors,&nbsp;as&nbsp;evaluated&nbsp;in&nbsp;the<br>
+earth-centered&nbsp;inertial&nbsp;(ECI)&nbsp;frame.</tt></dd></dl>
+
+<dl><dt><a name="Orbit-fromTle"><strong>fromTle</strong></a>(cls, line1, line2)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Constructs&nbsp;an&nbsp;<a href="#Orbit">Orbit</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;from&nbsp;the&nbsp;given&nbsp;two&nbsp;strings,&nbsp;as&nbsp;formatted<br>
+by&nbsp;the&nbsp;TLE&nbsp;(two-line&nbsp;element)&nbsp;specification&nbsp;(one&nbsp;string&nbsp;per&nbsp;line).</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-acos"><strong>acos</strong></a>(...)</dt><dd><tt><a href="#-acos">acos</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;arc&nbsp;cosine&nbsp;(measured&nbsp;in&nbsp;radians)&nbsp;of&nbsp;x.</tt></dd></dl>
+ <dl><dt><a name="-asin"><strong>asin</strong></a>(...)</dt><dd><tt><a href="#-asin">asin</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;arc&nbsp;sine&nbsp;(measured&nbsp;in&nbsp;radians)&nbsp;of&nbsp;x.</tt></dd></dl>
+ <dl><dt><a name="-cos"><strong>cos</strong></a>(...)</dt><dd><tt><a href="#-cos">cos</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;cosine&nbsp;of&nbsp;x&nbsp;(measured&nbsp;in&nbsp;radians).</tt></dd></dl>
+ <dl><dt><a name="-sin"><strong>sin</strong></a>(...)</dt><dd><tt><a href="#-sin">sin</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;sine&nbsp;of&nbsp;x&nbsp;(measured&nbsp;in&nbsp;radians).</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>pi</strong> = 3.141592653589793</td></tr></table>
+</body></html>

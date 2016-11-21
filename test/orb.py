@@ -2,6 +2,7 @@
 """
 
 from __future__ import division
+import datetime
 import unittest
 import numpy
 from math import pi
@@ -43,12 +44,43 @@ class FrameTests(unittest.TestCase):
         o = orb.Orbit(e=0.5, M_rad=0.5*pi)
         rPqw_m = o.getRpqw()
         
-    def test_example4p7(self):
+    def test_example4p7mod(self):
         e = 0.4
         a_m = 8e10 / (earth.mu_m3ps2 * (1 - e**2))
         M_rad = anomaly.true2mean(30 * pi / 180, e)
         o = orb.Orbit(a_m=a_m, e=e, i_rad=30*pi/180, O_rad=40*pi/180, w_rad=60*pi/180, M_rad=M_rad)
         rEci_m = o.getReci()
+        
+class J2Tests(unittest.TestCase):
+    def test_raan(self):
+        o = orb.MeanJ2(a_m=6.718e6, e=8.931e-3, i_rad=51.43*pi/180)
+        dRaan_degpday = o.getRaanRate() * 180/pi * 86400
+        self.assertTrue(abs(dRaan_degpday - 5.181) / dRaan_degpday < 1e-3)
+
+    def test_aop(self):
+        o = orb.MeanJ2(a_m=6.718e6, e=8.931e-3, i_rad=51.43*pi/180)
+        dAop_degpday = o.getAopRate() * 180/pi * 86400
+        self.assertTrue(abs(dAop_degpday - 3.920) / dAop_degpday < 1e-3)
+        
+    def test_example4p9(self):
+        o = orb.MeanJ2.fromSunSync(100 * 60)
+        self.assertTrue(abs(o.a_m - (7.5863e5 + earth.eqRad_m)) / o.a_m < 1e-3)
+        self.assertTrue(abs(o.i_rad - 98.43 * pi / 180) / o.i_rad < 1e-3)
+        
+    def test_example4p10(self):
+        o = orb.MeanJ2.fromConstAop(3 * 3600)
+        shape = o.getShape()
+        self.assertTrue(abs(shape[0] - 5.215e5) / shape[0] < 1e-3)
+        self.assertTrue(abs(shape[1] - 7.842e6) / shape[1] < 1e-3)
+    
+    def test_example4p11(self):
+        rEci_m = numpy.array([-3.67e6, -3.87e6, 4.4e6])
+        vEci_mps = numpy.array([4.7e3, -7.4e3, 1e3])
+        o = orb.MeanJ2.fromRV(rEci_m, vEci_mps)
+        rEciNew_m = o.getReci(o.tEpoch_dt + datetime.timedelta(4))
+        rNew_m = rEciNew_m.dot(rEciNew_m)**0.5
+        drEci_m = rEciNew_m - numpy.array([9.672e6, 4.32e6, -8.691e6])
+        self.assertTrue(drEci_m.dot(drEci_m)**0.5 / rNew_m < 1e-3)
         
 class PropertyTests(unittest.TestCase):
     def setUp(self):
