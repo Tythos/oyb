@@ -12,5 +12,5 @@ __all__ = [
     'rot'
 ]
 
-from orb import *
+from oyb.orb import *
 
