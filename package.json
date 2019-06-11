@@ -1,0 +1,18 @@
+{
+	"version": "0.0.1",
+	"install_requires": [],
+	"keywords": "",
+	"classifiers": [],
+	"author": "Tythos",
+	"author_email": "code@tythos.net",
+	"description": "Oy vey! So many orbit models. Here's another one.",
+	"url": "https://github.com/" + author + "/" + name,
+	"test_suite": name+".test.suite",
+	"license": "MIT",
+	"package_data": {
+		"": ["*.html","*.rst"]
+	},
+	"name": name,
+	"packages": find_packages(),
+	"long_description": ld,
+}
