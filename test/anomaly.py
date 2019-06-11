@@ -3,11 +3,12 @@
 
 import unittest
 from math import pi
-from oyb import orb, anomaly, earth
+import oyb
+from oyb import anomaly, earth
 
 class MeanToTrue(unittest.TestCase):
     def test_example3p1(self):
-        o = orb.Orbit()
+        o = oyb.Orbit()
         o.setShape(9.6e6 - earth.eqRad_m, 2.1e7 - earth.eqRad_m)
         tht_rad = 120 * pi / 180
         M_rad = anomaly.true2mean(tht_rad, o.e)

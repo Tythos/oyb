@@ -1,9 +1,14 @@
 {
 	"version": "0.1.0",
-	"install_requires": [
-		"numpy >= 1.16"
+	"keywords": [
+		"orbits",
+		"propagator",
+		"keplerian",
+		"elements",
+		"position",
+		"velocity",
+		"aerospace"
 	],
-	"keywords": "",
 	"classifiers": [
 		"Development status :: 4 - Beta",
 		"Environment :: Console",
