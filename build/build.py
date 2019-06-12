@@ -20,7 +20,7 @@ def copy():
     """Copies package contents to build directory
     """
     name = getPackageName()
-    print("Copying package contents to build directory...")
+    print("1. Copying package contents to build directory...")
     buildPath, _ = os.path.split(os.path.abspath(__file__))
     buildCopy = buildPath + "/" + name
     packagePath, _ = os.path.split(buildPath)
@@ -36,7 +36,7 @@ def test(isSilent=True):
     """Runs setuptools with "test" mode. At some point this should be extended
        to verify that the test suite(s?) completed successfully.
     """
-    print("Running setuptools in 'test' mode...")
+    print("2. Running setuptools in 'test' mode...")
     buildPath, _ = os.path.split(os.path.abspath(__file__))
     args = {}
     if isSilent:
@@ -48,7 +48,7 @@ def test(isSilent=True):
 def build(isSilent=True):
     """Runs setuptools build pass with targz target for source distribution
     """
-    print("Running setuptools to build source targz...")
+    print("3. Running setuptools to build source targz...")
     buildPath, _ = os.path.split(os.path.abspath(__file__))
     args = {}
     if isSilent:
@@ -57,15 +57,17 @@ def build(isSilent=True):
     subp = subprocess.Popen(["python", buildPath + "/setup.py", "sdist", "--format=gztar"], **args)
     subp.communicate()
 
-def register():
+def publish(isSilent=True):
     """
     """
-    pass
-
-def publish():
-    """
-    """
-    pass
+    print("4. Publishing package to PyPI...")
+    buildPath, _ = os.path.split(os.path.abspath(__file__))
+    args = {}
+    if isSilent:
+        args["stdout"] = subprocess.PIPE
+        args["stderr"] = subprocess.PIPE
+    subp = subprocess.Popen(["python", buildPath + "/setup.py", "sdist", "--format=gztar", "upload"], **args)
+    subp.communicate()
 
 def cleanup():
     """Remove all contents of copied build folder and other artifacts
@@ -94,11 +96,10 @@ def main(isCleanOnly=False):
         copy()
         test()
         build()
-        register()
         publish()
     if isCleanOnly:
         print("Cleaning build for package %s..." % getPackageName())
-    cleanup()
+        cleanup()
 
 if __name__ == "__main__":
     main("--clean" in sys.argv)
