@@ -1,5 +1,5 @@
 {
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"keywords": [
 		"orbits",
 		"propagator",
@@ -26,6 +26,6 @@
 	"test_suite": "oyb.test.suite",
 	"license": "MIT",
 	"package_data": {
-		"": ["*.html","*.rst"]
+		"oyb": ["*.html","*.rst"]
 	}
 }

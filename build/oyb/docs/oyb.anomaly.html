@@ -1,0 +1,54 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module oyb.anomaly</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="oyb.html"><font color="#ffffff">oyb</font></a>.anomaly</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/bkirkpatrick/projects/oyb/anomaly.py">c:\users\bkirkpatrick\projects\oyb\anomaly.py</a></font></td></tr></table>
+    <p><tt>Defines&nbsp;conversions&nbsp;between&nbsp;various&nbsp;anomalies.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-atan2"><strong>atan2</strong></a>(...)</dt><dd><tt><a href="#-atan2">atan2</a>(y,&nbsp;x)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;arc&nbsp;tangent&nbsp;(measured&nbsp;in&nbsp;radians)&nbsp;of&nbsp;y/x.<br>
+Unlike&nbsp;atan(y/x),&nbsp;the&nbsp;signs&nbsp;of&nbsp;both&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;considered.</tt></dd></dl>
+ <dl><dt><a name="-cos"><strong>cos</strong></a>(...)</dt><dd><tt><a href="#-cos">cos</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;cosine&nbsp;of&nbsp;x&nbsp;(measured&nbsp;in&nbsp;radians).</tt></dd></dl>
+ <dl><dt><a name="-ecc2mean"><strong>ecc2mean</strong></a>(E_rad, e)</dt><dd><tt>Converts&nbsp;an&nbsp;eccentric&nbsp;anomaly&nbsp;into&nbsp;mean&nbsp;(constant&nbsp;time-rate&nbsp;projection).</tt></dd></dl>
+ <dl><dt><a name="-ecc2true"><strong>ecc2true</strong></a>(E_rad, e)</dt><dd><tt>Converts&nbsp;an&nbsp;eccentric&nbsp;anomaly&nbsp;into&nbsp;true&nbsp;(angle&nbsp;from&nbsp;perigee&nbsp;in&nbsp;cartesian<br>
+space).</tt></dd></dl>
+ <dl><dt><a name="-mean2ecc"><strong>mean2ecc</strong></a>(M_rad, e)</dt><dd><tt>Converts&nbsp;a&nbsp;mean&nbsp;(constant&nbsp;time-rate&nbsp;projection)&nbsp;anomaly&nbsp;into&nbsp;eccentric.<br>
+This&nbsp;is&nbsp;the&nbsp;only&nbsp;non-procedural&nbsp;conversion&nbsp;(i.e.,&nbsp;it&nbsp;is&nbsp;computed&nbsp;by<br>
+numerical&nbsp;iteration),&nbsp;necessary&nbsp;to&nbsp;solve&nbsp;the&nbsp;transcendental&nbsp;Kepler's<br>
+equation&nbsp;for&nbsp;eccentric&nbsp;anomaly&nbsp;(M&nbsp;=&nbsp;E&nbsp;+&nbsp;e&nbsp;*&nbsp;<a href="#-sin">sin</a>(E)).</tt></dd></dl>
+ <dl><dt><a name="-mean2true"><strong>mean2true</strong></a>(M_rad, e)</dt><dd><tt>Converts&nbsp;a&nbsp;mean&nbsp;(constant&nbsp;time-rate&nbsp;projection)&nbsp;into&nbsp;true&nbsp;(angle&nbsp;from<br>
+perigee&nbsp;in&nbsp;cartesian&nbsp;space)&nbsp;by&nbsp;chaining&nbsp;*true2ecc*&nbsp;and&nbsp;*ecc2mean*.</tt></dd></dl>
+ <dl><dt><a name="-sin"><strong>sin</strong></a>(...)</dt><dd><tt><a href="#-sin">sin</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;sine&nbsp;of&nbsp;x&nbsp;(measured&nbsp;in&nbsp;radians).</tt></dd></dl>
+ <dl><dt><a name="-tan"><strong>tan</strong></a>(...)</dt><dd><tt><a href="#-tan">tan</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;tangent&nbsp;of&nbsp;x&nbsp;(measured&nbsp;in&nbsp;radians).</tt></dd></dl>
+ <dl><dt><a name="-true2ecc"><strong>true2ecc</strong></a>(tht_rad, e)</dt><dd><tt>Converts&nbsp;a&nbsp;true&nbsp;(angle&nbsp;from&nbsp;perigee&nbsp;in&nbsp;cartesian&nbsp;space)&nbsp;into&nbsp;eccentric.</tt></dd></dl>
+ <dl><dt><a name="-true2mean"><strong>true2mean</strong></a>(tht_rad, e)</dt><dd><tt>Converts&nbsp;a&nbsp;true&nbsp;(angle&nbsp;from&nbsp;perigee&nbsp;in&nbsp;cartesian&nbsp;space)&nbsp;into&nbsp;mean<br>
+(constant&nbsp;time-rate&nbsp;projection)&nbsp;by&nbsp;chaining&nbsp;*true2ecc*&nbsp;and&nbsp;*ecc2mean*.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>pi</strong> = 3.141592653589793</td></tr></table>
+</body></html>

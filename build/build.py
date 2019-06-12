@@ -47,7 +47,7 @@ def test(isSilent=True):
     if isSilent:
         args["stdout"] = subprocess.PIPE
         args["stderr"] = subprocess.PIPE
-    subp = subprocess.Popen(["python", buildPath + "/setup.py", "test"], **args)
+    subp = subprocess.Popen([sys.executable, buildPath + "/setup.py", "test"], **args)
     subp.communicate()
 
 def build(isSilent=True):
@@ -59,7 +59,7 @@ def build(isSilent=True):
     if isSilent:
         args["stdout"] = subprocess.PIPE
         args["stderr"] = subprocess.PIPE
-    subp = subprocess.Popen(["python", buildPath + "/setup.py", "sdist", "--format=gztar"], **args)
+    subp = subprocess.Popen([sys.executable, buildPath + "/setup.py", "sdist", "--format=gztar"], **args)
     subp.communicate()
 
 def publish(isSilent=True):
@@ -71,7 +71,7 @@ def publish(isSilent=True):
     if isSilent:
         args["stdout"] = subprocess.PIPE
         args["stderr"] = subprocess.PIPE
-    subp = subprocess.Popen(["python", buildPath + "/setup.py", "sdist", "--format=gztar", "upload"], **args)
+    subp = subprocess.Popen([sys.executable, buildPath + "/setup.py", "sdist", "--format=gztar", "upload"], **args)
     subp.communicate()
 
 def cleanup():
@@ -93,18 +93,18 @@ def cleanup():
     if os.path.isdir(distPath):
         shutil.rmtree(distPath)
 
-def main(isCleanOnly=False):
+def main(isCleanOnly=False, isVerbose=False):
     """
     """
     if not isCleanOnly:
         print("Building package %s..." % getPackageName())
         copy()
-        test()
-        build()
-        publish()
+        test(not isVerbose)
+        build(not isVerbose)
+        publish(not isVerbose)
     if isCleanOnly:
         print("Cleaning build for package %s..." % getPackageName())
-    cleanup()
+        cleanup()
 
 if __name__ == "__main__":
-    main("--clean" in sys.argv)
+    main("--clean" in sys.argv, "--verbose" in sys.argv)
