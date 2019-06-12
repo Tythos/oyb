@@ -11,7 +11,7 @@ import json
 from setuptools import setup, find_packages
 
 def main():
-    """
+    """We should totally grab the version from the most recent git tag
     """
     buildPath, _ = os.path.split(os.path.abspath(__file__))
     packPath, _ = os.path.split(buildPath)
@@ -29,6 +29,7 @@ def main():
         with open(reqsPath, 'r') as f:
             settings["install_requires"] = f.readlines()
         settings["name"] = packName
+        settings["packages"] = [packName]
         setup(**settings)
     except Exception as e:
         print("Error while building package:", e)

@@ -17,7 +17,8 @@ def getPackageName():
     return packageName
 
 def copy():
-    """Copies package contents to build directory
+    """Copies package contents to build directory. Might be useful to have a
+       manifest or reverse-manifest (e.g., something like a ".packageignore")
     """
     name = getPackageName()
     print("1. Copying package contents to build directory...")
@@ -29,8 +30,12 @@ def copy():
         fromPath = packagePath + "/" + item
         toPath = buildCopy + "/" + item
         _, fromName = os.path.split(fromPath)
-        if os.path.isdir(fromPath) and fromName.lower() != "build" and not fromName.startswith("."):
+        if os.path.isdir(fromPath) and fromName.lower() != "build" and not fromName.startswith(".") and not fromName.startswith("__"):
+            # add subfolder
             shutil.copytree(fromPath, toPath)
+        if os.path.isfile(fromPath) and not fromName.startswith("."):
+            # add file
+            shutil.copy(fromPath, toPath)
 
 def test(isSilent=True):
     """Runs setuptools with "test" mode. At some point this should be extended
@@ -99,7 +104,7 @@ def main(isCleanOnly=False):
         publish()
     if isCleanOnly:
         print("Cleaning build for package %s..." % getPackageName())
-        cleanup()
+    cleanup()
 
 if __name__ == "__main__":
     main("--clean" in sys.argv)
